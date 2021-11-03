@@ -1,8 +1,22 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
-  canvas {
-    display: block;
-  }
-  
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #d0dde9;
+  color: rgb(83, 83, 199);
+}
+canvas {
+  display: block;
+}
+#title1, #title2 {
+  text-shadow: 1px 1px #000000;
+  text-shadow: 1px -1px #000000;
+  text-shadow: -1px -1px #000000;
+  text-shadow: -1px 1px #000000;
+  text-indent: 20px;
+
+}
+
+#list {
+  color: #000000;
+}
