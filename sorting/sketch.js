@@ -9,7 +9,7 @@ function setup() {
   createCanvas(window_width, window_hight);
   var biggest = 0
   for (let index = 0; index < array_size; index++) {
-    let rand = int(random(1, 100));
+    let rand =random(1, 100);
     main_array.push(rand);
     if(rand>biggest) biggest = rand;
   }
