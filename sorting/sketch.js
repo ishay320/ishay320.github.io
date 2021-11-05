@@ -4,12 +4,16 @@ const window_width = window.innerWidth;
 
 var main_array = []
 const array_size = 100
-
+var rect_size = 0
 function setup() {
   createCanvas(window_width, window_hight);
+  var biggest = 0
   for (let index = 0; index < array_size; index++) {
-    main_array.push(int(random(1, 100)));
+    let rand = int(random(1, 100));
+    main_array.push(rand);
+    if(rand>biggest) biggest = rand;
   }
+  rect_size = window_hight/biggest
 }
 
 
@@ -47,7 +51,7 @@ function show(array) {
   background(220);
   let i = 0
   main_array.forEach(element => {
-    rect((i++) * rect_width, window_hight, rect_width, -(element * 4))
+    rect((i++) * rect_width, window_hight, rect_width, -(element *rect_size)+100)
   });
 }
 
