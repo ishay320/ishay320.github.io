@@ -36,7 +36,7 @@ function draw() { //TODO: understand how to make it slow
       i++
     }
     if (i == (array_size)) {
-      i = 0
+      noLoop()
     }
   }
 
@@ -51,7 +51,7 @@ function show(array) {
   background(220);
   let i = 0
   main_array.forEach(element => {
-    rect((i++) * rect_width, window_hight, rect_width, -(element *rect_size)+100)
+    rect((i++) * rect_width, window_hight, rect_width, -(element *rect_size)*0.9)
   });
 }
 
