@@ -1,62 +1,31 @@
+//  import Bubble from "./bubble.js"
 
 const window_hight = window.innerHeight;
 const window_width = window.innerWidth;
 
 var main_array = []
-const array_size = 100
-var rect_size = 0
+const array_size = 50
+
 function setup() {
   createCanvas(window_width, window_hight);
-  var biggest = 0
+
   for (let index = 0; index < array_size; index++) {
-    let rand =random(1, 100);
+    let rand = random(0, 1);
     main_array.push(rand);
-    if(rand>biggest) biggest = rand;
   }
-  rect_size = window_hight/biggest
+
 }
 
 
-var i = 0
-var j = 0
 const speed = 4
+var bubble = new Bubble(main_array, 0, 0, window_width < window_hight ? window_width / 2 : window_hight / 2)
 
 function draw() { //TODO: understand how to make it slow 
   background(220);
-  // doing `speed` element at one draw
-  for (let index = 0; index < speed; index++) {
-    if (main_array[j] > main_array[j + 1]) {
-      var temp = main_array[j]
-      main_array[j] = main_array[j + 1]
-      main_array[j + 1] = temp
-    }
-    j++
-    if (j == (array_size - i)) {
-      j = 0
-      i++
-    }
-    if (i == (array_size)) {
-      noLoop()
-    }
+
+  if (bubble.step(speed)) {
+    noLoop()
   }
-
-  show(main_array)
-  text("Bubble sort", (window_width / 2) - 100, 20, 300, 200)
-  textSize(30)
-}
-
-const rect_width = window_width / array_size
-
-function show(array) {
-  background(220);
-  let i = 0
-  main_array.forEach(element => {
-    rect((i++) * rect_width, window_hight, rect_width, -(element *rect_size)*0.9)
-  });
-}
-
-function swap(a, b) {
-  let temp = a
-  a = b
-  a = temp
+  bubble.show()
+  bubble.show_text()
 }
